@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حكايتنا - حمودتي 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Dancing+Script:wght@700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nebula-bg"></div>
+    <div id="particles-js"></div>
+    <div id="hearts-container"></div>
+
+    <!-- مراحل الترحيب (الشقاوة الخارجية) -->
+    <div id="pre-entry">
+        <!-- المرحلة 1 -->
+        <div id="stage1" class="vault-box">
+            <h2 class="romantic-title">أهلاً يا حمودتي 🧸</h2>
+            <p>قبل أي حاجة.. إنت حمودتي أنا بس؟</p>
+            <div class="choice-buttons">
+                <button onclick="nextStage(1, 2)">أيوة طبعاً 🙋‍♂️</button>
+                <button onclick="nextStage(1, 2)">أيوة وشوية كمان 😍</button>
+            </div>
+        </div>
+        <!-- المرحلة 2 -->
+        <div id="stage2" class="vault-box hidden">
+            <h2 class="romantic-title">طب سؤال تاني.. 🧐</h2>
+            <p>وحشتك النهاردة؟</p>
+            <div class="choice-buttons">
+                <button onclick="nextStage(2, 3)">جداً جداً 💖</button>
+                <button onclick="nextStage(2, 3)">فوق ما تتخيلي 🌟</button>
+            </div>
+        </div>
+        <!-- المرحلة 3 -->
+        <div id="stage3" class="vault-box hidden">
+            <h2 class="romantic-title">آخر سؤال.. 💍</h2>
+            <p>بتحبني قد إيه؟</p>
+            <div class="choice-buttons">
+                <button onclick="showLogin()">قد البحر وسمكاته 🌊</button>
+                <button onclick="showLogin()">لحد النجوم وبعيد 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- شاشة الباسورد -->
+    <div id="login-screen" class="hidden">
+        <div class="vault-box" id="login-box">
+            <h2 class="cyber-title">SECURITY ACCESS</h2>
+            <p>أثبت هويتك يا بطل واكتب تاريخنا :</p>
+            <input type="text" id="passwordInput" placeholder="DD-MM">
+            <button onclick="checkPassword()" class="btn-glow">فتح الخزنة ❤️</button>
+            <p id="errorMessage" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- المحتوى الرئيسي (Vertical Dashboard) -->
+    <main id="main-content" class="hidden main-scroll">
+        
+        <header class="main-header">
+            <h1 class="glitch-text" data-text="HAPPY NEW YEAR 2026">HAPPY NEW YEAR 2026</h1>
+            <p class="love-subtitle">كل سنة وإنت منور دنيتي يا حمودتي</p>
+        </header>
+
+        <div class="content-stack">
+            <!-- 1. كارت الرسالة -->
+            <div class="glass-card big-card">
+                <h3 class="card-title">❤️ A Letter to My Hero</h3>
+                <div id="typewriter-text" class="letter-content"></div>
+            </div>
+
+            <!-- 2. كارت ألبوم الذكريات (صور كبيرة ومنظمة) -->
+            <div class="glass-card big-card">
+                <h3 class="card-title">📸 Our Photo Wall</h3>
+                <div class="photo-grid">
+                    <div class="photo-item">
+                        <img src="photo1.jpg.jpeg" alt="ذكرياتنا">
+                        <p>أجمل ضحكة شوفتها</p>
+                    </div>
+                    <div class="photo-item">
+                        <img src="photo2.jpg.jpeg" alt="ذكرياتنا">
+                        <p>بتمني نعمل صور واحط هنا كتيررر</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. كارت التشفير (القلب السحري) -->
+            <div class="glass-card big-card">
+                <h3 class="card-title">🔐 Secret Heart Decryption</h3>
+                <div class="heart-container">
+                    <svg viewBox="0 0 200 200" id="heart-svg">
+                        <path id="heart-path" d="M100,160 Q10,100 60,40 Q100,20 100,60 Q100,20 140,40 Q190,100 100,160" />
+                        <text id="initials" x="50%" y="55%" text-anchor="middle" class="hidden-initials">R + M</text>
+                    </svg>
+                </div>
+                <button onclick="decryptHeart()" id="decrypt-btn">اضغط لفك التشفير</button>
+            </div>
+
+            <!-- 4. كارت الموسيقى -->
+            <div class="glass-card big-card">
+                <h3 class="card-title">🎵 Our Soundtrack</h3>
+                <div class="music-player-vertical">
+                    <p id="song-title">الأغنية الحالية</p>
+                    <audio id="mainAudio" loop></audio>
+                    <div class="controls">
+                        <button onclick="prevSong()">⏮</button>
+                        <button onclick="togglePlay()" id="playBtn" class="main-play-btn">▶️</button>
+                        <button onclick="nextSong()">⏭</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. كارت كوبونات الحب -->
+            <div class="glass-card big-card coupon-section">
+                <h3 class="card-title">🎫 Love Coupons</h3>
+                <p>كوبون هدية خاص لحمودتي:</p>
+                <div id="coupon-display">اضغط لاستلام كوبونك</div>
+                <button onclick="generateCoupon()" class="neon-button">إصدار كوبون جديد</button>
+            </div>
+
+            <!-- 6. كارت الأهداف (Bucket List) -->
+            <div class="glass-card big-card">
+                <h3 class="card-title">📝 Bucket List 2026</h3>
+                <ul class="bucket-list-vertical">
+                    <li><input type="checkbox" checked> نكون دايماا صارحين مع بعض دايمااا❤️</li>
+                    <li><input type="checkbox" checked>  منمش واحنا زعلانين من بعض ابداا ❤️</li>
+                    <li><input type="checkbox" checked> نفضل سند لبعض للأبد ❤️</li>
+                    <li><input type="checkbox" checked>  الاهم اننا نشيل فكره اننا نسيب بعض من دماغنا ونتعامل مع اي مشكله علي انها خناقه عاديه وشويه ونتصالح❤️</li>
+                </ul>
+            </div>
+
+            <!-- 7. العداد والذكرى -->
+            <div class="glass-card big-card footer-card">
+                <h3 class="card-title">⏳ New Year Countdown</h3>
+                <div class="timer-display">
+                    <div class="time-box"><span id="days">00</span><p>يوم</p></div>
+                    <div class="time-box"><span id="hours">00</span><p>ساعة</p></div>
+                    <div class="time-box"><span id="minutes">00</span><p>دقيقة</p></div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
