@@ -1,8 +1,8 @@
 // بيانات الأغاني
 const songs = [
-    { title: " الليل وسماه 💖", src: "assets/song1.mp3.mp3" },
-    { title: " قبلتك انت لقيتك  🎵", src: "assets/song2.mp3.mp3" },
-    { title: "نفسي اقولك  🌟", src: "assets/song3.mp3.mp3" }
+    { title: " الليل وسماه 💖", src: "song1.mp3.mp3" },
+    { title: " قبلتك انت لقيتك  🎵", src: "song2.mp3.mp3" },
+    { title: "نفسي اقولك  🌟", src: "song3.mp3.mp3" }
 ];
 
 let songIndex = 0;
@@ -110,5 +110,6 @@ function createHearts() {
         setTimeout(() => heart.remove(), 4000);
     }, 300);
 }
+
 
 particlesJS("particles-js", { "particles": { "number": { "value": 100 }, "color": { "value": "#ffffff" }, "size": { "value": 1.5 }, "move": { "enable": true, "speed": 1 } } });
