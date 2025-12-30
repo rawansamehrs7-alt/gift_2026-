@@ -54,7 +54,7 @@ function checkPassword() {
         setTimeout(() => loginBox.style.animation = "", 400);
         if (errorCount === 1) errorBox.innerText = "ركز يا حمودتي.. التاريخ غلط! 🧐";
         else if (errorCount === 2) errorBox.innerText = "ما إنت لو مهتم كنت عرفت! 🙄";
-        else if (errorCount === 3) errorBox.innerText = "دي تالت مرة! يلاهوي 😂";
+        else if (errorCount === 3) errorBox.innerText = "دي تالت مرة! يلاهوي 😞";
         else errorBox.innerText = "اكتب 10/10 يا حمودتيى هموتك! ❤️";
     }
 }
@@ -113,3 +113,4 @@ function createHearts() {
 
 
 particlesJS("particles-js", { "particles": { "number": { "value": 100 }, "color": { "value": "#ffffff" }, "size": { "value": 1.5 }, "move": { "enable": true, "speed": 1 } } });
+
